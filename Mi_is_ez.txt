@@ -1,0 +1,1 @@
+senzor ami méri a virágtalajt páratartalmát ha alacsony akkor beindítja az öntözőt rendszert, senzor méri a hőmérsékletet ha alacsony beindít egy ledet ha magas egy ventit

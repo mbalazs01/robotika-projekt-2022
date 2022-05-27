@@ -1,0 +1,70 @@
+int led = 11;
+int WATERPUMP = 8; //motor pump connected to pin 13
+int sensor = 7; // nedvesseg
+int val;
+int A;
+
+void setup()
+{
+  Serial.begin(9600);
+  
+  pinMode(A1, INPUT);
+  pinMode(7,INPUT); //nedvesseg erzekelo
+  pinMode(4, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(led,OUTPUT);
+  digitalWrite(3, HIGH);
+  digitalWrite(9,HIGH);
+}
+
+void loop()
+{
+  if (Serial.available()) //loop to operate motor
+  {
+    int speed = Serial.parseInt(); // to read the number entered as text in the Serial Monitor 
+    if (speed >= 0 && speed <= 255)
+    {
+      analogWrite(WATERPUMP, speed);// tuns on the motor at specified speed 
+    }
+  }
+  
+  val = digitalRead(7);  //Olvassas a moistrue szenzorrol  
+  if(val == LOW) 
+  {
+  digitalWrite(8,HIGH); //alcson jelet kuldok ha alacson es a pumpa motort  kikapcsolom
+  }
+  else
+  {
+  digitalWrite(8,LOW); //magas jelet kuldok ha magas es a puma mmotort bekapcsolom
+  }
+  A = analogRead(A1);
+  Serial.println(A);
+  if (A >= 160)
+  {
+  	digitalWrite(9,HIGH);
+    digitalWrite(10,LOW);
+  }
+  
+  int temp = analogRead(A1);
+  Serial.println(temp);
+  
+  if (temp <= 160)
+  {
+    digitalWrite(3, LOW);
+  	digitalWrite(led,HIGH);
+  }
+  
+
+  else if (temp >= 145)
+  {
+    digitalWrite(4,HIGH);
+  	
+    digitalWrite(3, HIGH);
+  	digitalWrite(led,LOW);
+  }
+  else{
+    
+    digitalWrite(led,LOW);
+  }
+}

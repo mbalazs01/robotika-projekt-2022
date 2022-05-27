@@ -1,0 +1,9 @@
+﻿Név,Mennyiség,Összetevő
+"U1,1,"" Arduino Uno R3"""
+"U2,1,"" H-hidas motor hajtómű"""
+"BAT1,1,"" 9 V-os elem"""
+"SEN1,1,"" Soil Moisture Sensor"""
+"U3, U4,2,"" Hőmérséklet-érzékelő [TMP36]"""
+"M1, M3,2,"" Egyenáramú motor"""
+"R1,1,""220 Ω Ellenállás"""
+"D1,1,""Piros LED"""
